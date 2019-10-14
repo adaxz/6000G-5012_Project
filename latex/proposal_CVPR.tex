@@ -1,0 +1,89 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+%%%%%%%%% PAPER ID  - PLEASE UPDATE
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+\begin{document}
+
+%%%%%%%%% TITLE - PLEASE UPDATE
+\title{Google Landmark Recognition Challenge}  % **** Enter the paper title here
+
+\maketitle
+\thispagestyle{empty}
+
+
+%%%%%%%%% BODY TEXT - ENTER YOUR RESPONSE BELOW
+\section{Abstract}
+
+
+%-------------------------------------------------------------------------
+
+\section{Instroduction}
+While ImageNet attracts a lot of attention and a lot of models achieve high accuracy, the computer vision area lacks models for recognizing landmarks. We will be building a convolutional network model using Google-landmarks dataset since it is the largest landmark dataset available. This posts a huge challenge due to the smaller size of the dataset compare to ImageNet\cite{ILSVRC15}, and also the shared features between landmarks that were built in the same era and architectural style. 
+
+%------------------------------------------------------------------------
+\section{Related Work}
+
+There have been numerous innovations in the architectures of convolutional neural networks that drastically boosted the accuracy of some complicated image classification tasks. ResNet \cite{He_2016}, for example, successfully obtained a Top-5 classification accuracy of 96.53\% on ImageNet. Later innovations including VGG, Inception and different variations of ResNet have also improved the accuracy and efficiency in the image classification field. By using the combinations of these architectures, the previous competitors in the Kaggle Google Landmark Recognition Challenge \cite{Kaggle} were able to achieve fairly good results. The solution given by the first-place group used ResNet-101, ResNeXt-101, SE-ResNet-10, SE-ResNeXt-101 and SENet-154 as their backbone networks \cite{gu2019team}. The third-place solution used FishNet-150, ResNet-101 and SE-ResNeXt-101 as backbones. The evaluation metrics for the final test is the Global Average Precision (GAP) \cite{Kaggle} Both groups achieved around 0.3 GAP score. 
+
+%-------------------------------------------------------------------------
+\section{Technical overview}
+
+
+%-------------------------------------------------------------------------
+\subsection{Data Cleaning}
+
+The dataset, Google-Landmarks-v1, provided by Google, contains 5 million images of more than 200,000 different landmarks. The images were collected from photographers around the world who labeled their photos and supplemented them with historical and lesser-known images from Wikimedia Commons.
+
+For the data cleaning stage, we are considering adopting similar strategies mentioned by Ozaki et al \cite{Ozaki2019LargescaleLR}. The first step is to remove all classes with no more than 3 training samples (53,435 classes in total). Then by applying spatial verification to the filtered images by k nearest neighbor search, we expect the cleaned dataset contains around 2 million images with roughly 100,000 labels.
+
+\subsection{Modeling}
+Considering using ResNet-101 and SE-ResNeXt-101 as backbones trained with cosine-softmax / softmax based losses.
+
+
+
+\section{Expected Outcome}
+After applying the data cleaning method, the training data should not contain classes with the size of the training samples smaller than three. Visually unrelated images within the same class should also be discarded. After the meticulous construction of models and tuning of the parameters, we expect our model to achieve around 0.25 in GAP score.  
+
+
+
+%\begin{thebibliography}{9}
+%\bibitem{latexcompanion} 
+%
+% 
+%%\bibitem{einstein} 
+%%Albert Einstein. 
+%%\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+%%[\textit{On the electrodynamics of moving bodies}]. 
+%%Annalen der Physik, 322(10):891?921, 1905.
+%% 
+%%\bibitem{knuthwebsite} 
+%%Knuth: Computers and Typesetting,
+%%\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
+%\end{thebibliography}
+%{\small
+%\bibliographystyle{ieee}
+%\bibliography{egbib}
+%}
+{\small
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+}
+
+
+\end{document}
