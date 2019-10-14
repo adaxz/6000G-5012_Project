@@ -29,4 +29,4 @@ With a drastic boom in the deep learning field, this group of algorithms has con
 
 
 ## Expected Results
-After applying the data cleaning method, the training data should not contain classes with size of the training samples smaller than three. Visually unrelated images within the same class should also be discarded. After meticulous construction of models and tuning of the parameters, we expect our model to achieve around 0.25 in Kaggle leaderboard score.  
+After applying the data cleaning method, the training data should not contain classes with the size of the training samples smaller than three. Visually unrelated images within the same class should also be discarded. After the meticulous construction of models and tuning of the parameters, we expect our model to achieve around 0.25 in the Kaggle leaderboard score.  
