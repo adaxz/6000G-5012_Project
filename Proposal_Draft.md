@@ -16,14 +16,6 @@
 - Expected results
 - Reference
 
-## Tile
-Landmark Recognition
-
-## Abstract
-We present the proposal of building a convolutional network system in attempt to recognize famous landmarks around the world.
-
-## Introduction
-While ImageNet attracts a lot of attentions and a lot of models achieves high accuracy, the computer vision area lacks of model to recognizing landmarks. We will be building a convolutional network model using Google-landmarks dataset since it is the largest landmark dataset available. This posts a huge challenge due to the smaller size of the dataset compare to Imagenet, and also the shared features between landmarks that were built in the same era and architectural style. 
 
 
 ## Related Work
@@ -32,9 +24,4 @@ With a drastic boom in the deep learning field, this group of algorithms has con
 
 
 ## Expected Results
-
-## Reference
-http://cs231n.stanford.edu/
-https://www.kaggle.com/c/landmark-recognition-2019/
-Some CNN paper? Or tutorial website?
 
