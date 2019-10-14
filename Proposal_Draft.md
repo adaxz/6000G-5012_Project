@@ -16,6 +16,13 @@
 - Expected results
 - Reference
 
+## Abstract
+We present the proposal of building a convolutional network system in attempt to recognize famous landmarks around the world.
+
+## Introduction 
+
+While ImageNet attracts a lot of attention and a lot of models achieve high accuracy, the computer vision area lacks models for recognizing landmarks. We will be building a convolutional network model using Google-landmarks dataset since it is the largest landmark dataset available. This posts a huge challenge due to the smaller size of the dataset compare to Imagenet, and also the shared features between landmarks that were built in the same era and architectural style. 
+
 
 
 ## Introduction 
@@ -32,13 +39,16 @@ There have been numerous innovations in the architectures of convolutional neura
 ### Dataset
 
 - how to acquire dataset
-	- The dataset, Google-Landmarks-v1, provided by Google, contains 5 million images of more than 200,000 different landmarks. The images were collected from photographers around the world who labeled their photos and supplemented them with historical and lesser-known images from Wikimedia Commons. 
+	- The dataset, Google-Landmarks-v2, provided by Google, contains 5 million images of more than 200,000 different landmarks. The images were collected from photographers around the world who labeled their photos and supplemented them with historical and lesser-known images from Wikimedia Commons. 
+	- Due to the large size of the dataset (500GB), during each epoch we will download the needed subset, perform data cleaning, train the model, and delete the subset. 
 
 - Data Cleaning
 	- For the data cleaning stage, we are considering adopting similar strategies mentioned by Ozaki et al. The first step is to remove all classes with no more than 3 training samples (53,435 classes in total). Then by applying spatial verification to the filtered images by k nearest neighbor search, we expect the cleaned dataset contains around 2 million images with roughly 100,000 labels. 
 
 
 ### what network architecture to experiment/innovate
+- Will be doing our training on AWS instance due to more powerful machine
+- Will be using TensorFlow to construct our CNN and experiment with different hyperparamters including number of layers, learning rate, epoch and batch size.
 - Considering using ResNet-101 and SE-ResNeXt-101 as backbones trained with cosine-softmax / or softmax based losses.
 
 
